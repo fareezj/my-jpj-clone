@@ -61,6 +61,7 @@ flutter:
   assets:
     - assets/images/license-sample.png
     - assets/images/roadtax-sample.png
+    - assets/images/roadtax-motor-sample.png
     - assets/images/qr.png
 
   # An image asset can refer to one or more resolution-specific "variants", see

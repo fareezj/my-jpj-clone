@@ -13,6 +13,7 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreen> {
   int currentPage = 0;
+  MotoType pickedMotoType = MotoType.motorcycle;
   bool onViewRoadtax = false;
 
   @override
@@ -101,7 +102,10 @@ class _HomeScreenState extends State<HomeScreen> {
                     style: ElevatedButton.styleFrom(
                       backgroundColor: currentPage == 0 ? Colors.red : Colors.white,
                     ),
-                    onPressed: () => setState(() => currentPage = 0),
+                    onPressed: () => setState(() {
+                          currentPage = 0;
+                          onViewRoadtax = false;
+                        }),
                     child: Text(
                       'Driving License',
                       style: TextStyle(
@@ -146,12 +150,18 @@ class _HomeScreenState extends State<HomeScreen> {
                           children: [
                             VehicleListItem(
                               regNo: 'VCC1103',
-                              onClick: () => setState(() => onViewRoadtax = true),
+                              onClick: () => setState(() {
+                                pickedMotoType = MotoType.motorcycle;
+                                onViewRoadtax = true;
+                              }),
                             ),
                             const SizedBox(height: 15.0),
                             VehicleListItem(
                               regNo: 'TYQ1103',
-                              onClick: () => setState(() => onViewRoadtax = true),
+                              onClick: () => setState(() {
+                                pickedMotoType = MotoType.motorcycle;
+                                onViewRoadtax = true;
+                              }),
                             ),
                           ],
                         ),
@@ -166,8 +176,11 @@ class _HomeScreenState extends State<HomeScreen> {
                         child: Column(
                           children: [
                             VehicleListItem(
-                              regNo: 'VCC1103',
-                              onClick: () => setState(() => onViewRoadtax = true),
+                              regNo: 'ABC1103',
+                              onClick: () => setState(() {
+                                pickedMotoType = MotoType.vehicle;
+                                onViewRoadtax = true;
+                              }),
                             ),
                           ],
                         ),
@@ -177,7 +190,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 ),
               ] else ...[
                 RoadtaxViewItem(
-                  image: 'assets/images/roadtax-sample.png',
+                  motoType: pickedMotoType,
                   onClick: () => setState(() => onViewRoadtax = false),
                 ),
               ]

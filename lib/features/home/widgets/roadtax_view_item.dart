@@ -3,13 +3,15 @@ import 'dart:math' as math;
 
 import 'package:my_jpj_sample/router/route_generator.dart';
 
+enum MotoType { vehicle, motorcycle }
+
 class RoadtaxViewItem extends StatelessWidget {
-  final String image;
   final VoidCallback onClick;
+  final MotoType motoType;
   const RoadtaxViewItem({
     super.key,
-    required this.image,
     required this.onClick,
+    required this.motoType,
   });
 
   @override
@@ -38,13 +40,22 @@ class RoadtaxViewItem extends StatelessWidget {
         ),
         Padding(
           padding: const EdgeInsets.all(20.0),
-          child: Image.asset(image),
+          child: Image.asset(motoType == MotoType.vehicle
+              ? 'assets/images/roadtax-sample.png'
+              : 'assets/images/roadtax-motor-sample.png'),
         ),
         Container(
           margin: const EdgeInsets.symmetric(vertical: 20.0),
           child: GestureDetector(
-            onTap: () => Navigator.pushNamed(context, '/second-screen',
-                arguments: SecondScreenArguments(image: image)),
+            onTap: () => Navigator.pushNamed(
+              context,
+              '/second-screen',
+              arguments: SecondScreenArguments(
+                image: motoType == MotoType.vehicle
+                    ? 'assets/images/roadtax-sample.png'
+                    : 'assets/images/roadtax-motor-sample.png',
+              ),
+            ),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [Icon(Icons.view_in_ar_outlined), Text('View Fullscreen')],
@@ -69,7 +80,7 @@ class RoadtaxViewItem extends StatelessWidget {
         Padding(
           padding: const EdgeInsets.symmetric(horizontal: 20.0, vertical: 15.0),
           child: Text(
-            'Untuk tujuan penguatkuasaan sahaja',
+            'For JPJ enforcement only',
             style: TextStyle(fontWeight: FontWeight.bold, color: Colors.grey[700]),
           ),
         ),
@@ -97,14 +108,20 @@ class RoadtaxViewItem extends StatelessWidget {
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Text('Tarikh Mula'),
+                  Text(
+                    'Start Date',
+                    style: TextStyle(fontWeight: FontWeight.bold, color: Colors.grey[700]),
+                  ),
                   Text('07 SEP 2022'),
                 ],
               ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Text('Tarikh Luput'),
+                  Text(
+                    'Expiry Date',
+                    style: TextStyle(fontWeight: FontWeight.bold, color: Colors.grey[700]),
+                  ),
                   Text('07 SEP 2022'),
                 ],
               ),
