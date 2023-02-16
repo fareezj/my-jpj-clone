@@ -29,12 +29,32 @@ class _BottomNavigationRouteState extends State<BottomNavigationRoute> {
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.endFloat,
       bottomNavigationBar: NavigationBar(
-        backgroundColor: Colors.red[100],
+        backgroundColor: Color(0xFF171E45),
         destinations: const <NavigationDestination>[
-          NavigationDestination(icon: Icon(Icons.home_outlined), label: 'Home'),
-          NavigationDestination(icon: Icon(Icons.email_outlined), label: 'Inbox'),
-          NavigationDestination(icon: Icon(Icons.pin_drop_outlined), label: 'Directory'),
-          NavigationDestination(icon: Icon(Icons.person_outline), label: 'Profile'),
+          NavigationDestination(
+              icon: Icon(
+                Icons.home_outlined,
+                color: Colors.white,
+              ),
+              label: ''),
+          NavigationDestination(
+              icon: Icon(
+                Icons.email_outlined,
+                color: Colors.white,
+              ),
+              label: ''),
+          NavigationDestination(
+              icon: Icon(
+                Icons.pin_drop_outlined,
+                color: Colors.white,
+              ),
+              label: ''),
+          NavigationDestination(
+              icon: Icon(
+                Icons.person_outline,
+                color: Colors.white,
+              ),
+              label: ''),
         ],
         selectedIndex: selectedIndex,
         onDestinationSelected: (int index) {

@@ -22,7 +22,7 @@ class RoadtaxViewItem extends StatelessWidget {
         const SizedBox(height: 20.0),
         ElevatedButton.icon(
           onPressed: onClick,
-          style: ElevatedButton.styleFrom(backgroundColor: Colors.red[200]),
+          style: ElevatedButton.styleFrom(backgroundColor: Colors.indigo[300]),
           icon: const Icon(
             Icons.arrow_left,
             size: 30.0,
@@ -52,8 +52,8 @@ class RoadtaxViewItem extends StatelessWidget {
               '/second-screen',
               arguments: SecondScreenArguments(
                 image: motoType == MotoType.vehicle
-                    ? 'assets/images/roadtax-sample.png'
-                    : 'assets/images/roadtax-motor-sample.png',
+                    ? 'assets/images/roadtax-sample-max.png'
+                    : 'assets/images/roadtax-motor-sample-max.png',
               ),
             ),
             child: Row(

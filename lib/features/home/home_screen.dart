@@ -35,7 +35,7 @@ class _HomeScreenState extends State<HomeScreen> {
             )
           ],
         ),
-        backgroundColor: Colors.red,
+        backgroundColor: Color(0xFF171E45),
         elevation: 0,
       ),
       body: SingleChildScrollView(
@@ -46,7 +46,7 @@ class _HomeScreenState extends State<HomeScreen> {
               height: 150,
               width: double.maxFinite,
               decoration: const BoxDecoration(
-                color: Colors.red,
+                color: Color(0xFF171E45),
                 borderRadius: BorderRadius.only(
                   bottomLeft: Radius.circular(30),
                   bottomRight: Radius.circular(30),
@@ -100,7 +100,7 @@ class _HomeScreenState extends State<HomeScreen> {
               children: [
                 ElevatedButton(
                     style: ElevatedButton.styleFrom(
-                      backgroundColor: currentPage == 0 ? Colors.red : Colors.white,
+                      backgroundColor: currentPage == 0 ? Color(0xFF171E45) : Colors.white,
                     ),
                     onPressed: () => setState(() {
                           currentPage = 0;
@@ -109,25 +109,28 @@ class _HomeScreenState extends State<HomeScreen> {
                     child: Text(
                       'Driving License',
                       style: TextStyle(
-                        color: currentPage == 0 ? Colors.white : Colors.red,
+                        color: currentPage == 0 ? Colors.white : Color(0xFF171E45),
                       ),
                     )),
                 ElevatedButton(
                   style: ElevatedButton.styleFrom(
-                    backgroundColor: currentPage == 1 ? Colors.red : Colors.white,
+                    backgroundColor: currentPage == 1 ? Color(0xFF171E45) : Colors.white,
                   ),
                   onPressed: () => setState(() => currentPage = 1),
                   child: Text(
                     'Road Tax',
                     style: TextStyle(
-                      color: currentPage == 1 ? Colors.white : Colors.red,
+                      color: currentPage == 1 ? Colors.white : Color(0xFF171E45),
                     ),
                   ),
                 ),
               ],
             ),
             if (currentPage == 0) ...[
-              const LicenseViewItem(image: 'assets/images/license-sample.png'),
+              const LicenseViewItem(
+                image: 'assets/images/license-sample.png',
+                imageMax: 'assets/images/license-sample-max.png',
+              ),
             ] else if (currentPage == 1) ...[
               if (!onViewRoadtax) ...[
                 const SizedBox(height: 20.0),

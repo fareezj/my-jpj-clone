@@ -5,8 +5,10 @@ import 'package:my_jpj_sample/router/route_generator.dart';
 
 class LicenseViewItem extends StatelessWidget {
   final String image;
+  final String imageMax;
   const LicenseViewItem({
     super.key,
+    required this.imageMax,
     required this.image,
   });
 
@@ -29,7 +31,7 @@ class LicenseViewItem extends StatelessWidget {
             margin: const EdgeInsets.symmetric(vertical: 20.0),
             child: GestureDetector(
               onTap: () => Navigator.pushNamed(context, '/second-screen',
-                  arguments: SecondScreenArguments(image: image)),
+                  arguments: SecondScreenArguments(image: imageMax)),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [Icon(Icons.view_in_ar_outlined), Text('View Fullscreen')],
